@@ -13,8 +13,8 @@ struct ComPort {
     bool openPort(const std::string& port, const int& baudrate);
     bool closePort();
 
-    virtual bool writeData(const char* data, const DWORD& dwSize);
-    virtual bool readData(char* dst, unsigned long &read);
+    virtual bool writeData(LPCVOID data, const DWORD& dwSize);
+    virtual bool readData(LPVOID dst, unsigned long &read);
 
 private:
     bool installPortSettings(const int& baudrate);

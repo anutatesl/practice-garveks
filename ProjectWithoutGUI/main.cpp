@@ -7,6 +7,6 @@ int main() {
 	const std::string folderPath = "";
 	const std::string fileName = "";
 
-	obj.sendFile(portName, fileName);
-	//obj.receiveFile(portName, folderPath, fileName);
+	//obj.sendFile(portName, fileName);
+	obj.receiveFile(portName, folderPath, fileName);
 }

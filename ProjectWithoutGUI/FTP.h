@@ -16,11 +16,12 @@ public:
 private:
 	ComPort port;
 	const int MAX_ERROR = 3;
+	int fragmentWeight = 10;
 
 	unsigned long calculateChecksumCRC32(std::vector<char>& buffer, unsigned long count);
-	unsigned short calculateChecksumCRC16(char* mass, unsigned long count);
+	unsigned short calculateChecksumCRC16(std::vector<char>& buffer, unsigned long count);
 
-	bool getAnswer(char* elem, unsigned long& read);
+	bool getAnswer(char elem, unsigned long& read);
 };
 
 #endif

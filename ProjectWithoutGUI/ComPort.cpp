@@ -95,7 +95,7 @@ bool ComPort::closePort() {
     return false;
 }
 
-bool ComPort::writeData(const char* data, const DWORD& dwSize) {
+bool ComPort::writeData(LPCVOID data, const DWORD& dwSize) {
     DWORD dwBytesWritten;
     BOOL iRet = WriteFile(cPort, data, dwSize, &dwBytesWritten, NULL);
     if (!iRet || dwBytesWritten != dwSize) {
@@ -107,7 +107,7 @@ bool ComPort::writeData(const char* data, const DWORD& dwSize) {
     return true;
 }
 
-bool ComPort::readData(char* dst, unsigned long& read) {
+bool ComPort::readData(LPVOID dst, unsigned long& read) {
     const int READ_TIME = 100;
     OVERLAPPED sync = { 0 };
     int result = 0;
